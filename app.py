@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
-from flask_sqlalchemy import SQLAlchemy
-from datetime import datetime
+#from flask_sqlalchemy import SQLAlchemy
+#from datetime import datetime
 
 app = Flask(__name__)
 
@@ -286,11 +286,11 @@ def calcular():
 
         #db.session.commit()
 
-    #except Exception as erro:
+    except Exception as erro:
 
-        #resultado = {"erro": str(erro)}
+        resultado = {"erro": str(erro)}
 
-    #return render_template("index.html", resultado=resultado)
+    return render_template("index.html", resultado=resultado)
 
 
 # =========================
