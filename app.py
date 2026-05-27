@@ -8,11 +8,11 @@ app = Flask(__name__)
 # CONFIG MYSQL
 # =========================
 
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///calculadora.db"
+#app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///calculadora.db"
 
-app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+#app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
-db = SQLAlchemy(app)
+#db = SQLAlchemy(app)
 
 # =========================
 # MODEL
