@@ -8,28 +8,28 @@ app = Flask(__name__)
 # CONFIG MYSQL
 # =========================
 
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///calculadora.db"
+#app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///calculadora.db"
 
-app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+#app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
-db = SQLAlchemy(app)
+#db = SQLAlchemy(app)
 
 # =========================
 # MODEL
 # =========================
 
 
-class Historico(db.Model):
+#class Historico(db.Model):
 
-    id = db.Column(db.Integer, primary_key=True)
+    #id = db.Column(db.Integer, primary_key=True)
 
-    tipo = db.Column(db.String(50), nullable=False)
+    #tipo = db.Column(db.String(50), nullable=False)
 
-    valores = db.Column(db.String(255), nullable=False)
+    #valores = db.Column(db.String(255), nullable=False)
 
-    resultado = db.Column(db.String(255), nullable=False)
+    #resultado = db.Column(db.String(255), nullable=False)
 
-    data = db.Column(db.DateTime, default=datetime.utcnow)
+    #data = db.Column(db.DateTime, default=datetime.utcnow)
 
 
 # =========================
@@ -280,17 +280,17 @@ def calcular():
         # SALVAR HISTÓRICO
         # =========================
 
-        novo_historico = Historico(tipo=tipo, valores=valores, resultado=str(resultado))
+        #novo_historico = Historico(tipo=tipo, valores=valores, resultado=str(resultado))
 
-        db.session.add(novo_historico)
+        #db.session.add(novo_historico)
 
-        db.session.commit()
+        #db.session.commit()
 
-    except Exception as erro:
+    #except Exception as erro:
 
-        resultado = {"erro": str(erro)}
+        #resultado = {"erro": str(erro)}
 
-    return render_template("index.html", resultado=resultado)
+    #return render_template("index.html", resultado=resultado)
 
 
 # =========================
@@ -298,20 +298,20 @@ def calcular():
 # =========================
 
 
-@app.route("/historico")
-def historico():
+#@app.route("/historico")
+#def historico():
 
-    dados = Historico.query.order_by(Historico.data.desc()).all()
+    #dados = Historico.query.order_by(Historico.data.desc()).all()
 
-    return render_template("historico.html", dados=dados)
+    #return render_template("historico.html", dados=dados)
 
 
 # =========================
 # CRIAR TABELAS
 # =========================
 
-with app.app_context():
-    db.create_all()
+#with app.app_context():
+    #db.create_all()
 
 # =========================
 # EXECUÇÃO
