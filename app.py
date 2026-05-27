@@ -1,9 +1,6 @@
 from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
-import pymysql
-
-pymysql.install_as_MySQLdb()
 
 app = Flask(__name__)
 
@@ -11,9 +8,8 @@ app = Flask(__name__)
 # CONFIG MYSQL
 # =========================
 
-app.config["SQLALCHEMY_DATABASE_URI"] = (
-    "mysql+pymysql://root:81218515@localhost/calculadora_web"
-)
+app.config['SQLALCHEMY_DATABASE_URI'] = \
+    'sqlite:///calculadora.db'
 
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
