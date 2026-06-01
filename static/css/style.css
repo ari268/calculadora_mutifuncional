@@ -1,0 +1,16 @@
+body {
+    background: #f4f6f9;
+}
+
+.card {
+    border: none;
+    border-radius: 15px;
+}
+
+h1 {
+    font-weight: bold;
+}
+
+button {
+    min-width: 70px;
+}
