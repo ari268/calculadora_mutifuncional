@@ -33,7 +33,20 @@ app = Flask(__name__)
 
 # data = db.Column(db.DateTime, default=datetime.utcnow)
 
-
+ROTAS_SIGNOS = {
+    "Áries": "aries",
+    "Touro": "touro",
+    "Gêmeos": "gemeos",
+    "Câncer": "cancer",
+    "Leão": "leao",
+    "Virgem": "virgem",
+    "Libra": "libra",
+    "Escorpião": "escorpiao",
+    "Sagitário": "sagitario",
+    "Capricórnio": "capricornio",
+    "Aquário": "aquario",
+    "Peixes": "peixes"
+}
 # =========================
 # CALCULADORA SIMPLES
 # =========================
@@ -79,11 +92,7 @@ def calculadora_porcentagem(valor, percentual):
     if percentual.is_integer():
         percentual = int(percentual)
 
-    return {
-        "valor": valor,
-        "percentual": percentual,
-        "resultado": resultado
-    }
+    return {"valor": valor, "percentual": percentual, "resultado": resultado}
 
 
 # =========================
@@ -296,6 +305,7 @@ def calcular_idade(data_nascimento):
         "minutos_vividos": minutos,
         "dia_da_semana": dia_semana,
         "signo": f"{icone_signo(signo)} {signo}",
+        "rota_signo": ROTAS_SIGNOS[signo],
         "dias_para_aniversario": dias_para_aniversario,
     }
 
@@ -306,6 +316,15 @@ def is_integer(value):
         return True
     except ValueError:
         return False
+
+
+# descrição signos
+
+
+@app.route("/signo/<nome>")
+def signo(nome):
+
+    return render_template(f"signos/{nome}.html")
 
 
 # =========================
