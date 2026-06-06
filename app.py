@@ -220,9 +220,9 @@ def calcular_idade(data_nascimento):
 
     diferenca = agora - nascimento
 
-    anos = int(diferenca.days / 365.25)
+    anos = int(diferenca.days *365)
 
-    meses = int(diferenca.days / 30.44)
+    meses = int(diferenca.days * 30)
 
     dias = diferenca.days
 
