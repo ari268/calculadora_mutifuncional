@@ -18,14 +18,79 @@
     <!-- CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 
+    <style>
+        .dark-mode {
+            background-color: #121212 !important;
+            color: white !important;
+        }
 
+        .dark-mode .card {
+            background-color: #1e1e1e;
+            color: white;
+            border-color: #333;
+        }
+
+        .dark-mode .navbar {
+            background-color: #000 !important;
+        }
+
+        .dark-mode footer {
+            background-color: #000 !important;
+        }
+
+        .dark-mode .form-control,
+        .dark-mode .form-select {
+            background-color: #2b2b2b;
+            color: white;
+            border: 1px solid #555;
+        }
+
+        .dark-mode .form-control::placeholder {
+            color: #bdbdbd;
+        }
+
+        .dark-mode .text-muted {
+            color: #d0d0d0 !important;
+        }
+
+        .dark-mode .alert-light {
+            background-color: #2b2b2b;
+            color: white;
+            border-color: #555;
+        }
+
+        .dark-mode .btn-outline-secondary {
+            color: white;
+            border-color: white;
+        }
+
+        .dark-mode .table {
+            color: white;
+        }
+
+        .dark-mode .table-bordered {
+            border-color: #555;
+        }
+    </style>
 </head>
 
 <script>
     function alternarTema() {
 
-        document.body.classList.toggle("bg-dark");
-        document.body.classList.toggle("text-light");
+        document.body.classList.toggle("dark-mode");
+
+        if (document.body.classList.contains("dark-mode")) {
+            localStorage.setItem("tema", "escuro");
+        } else {
+            localStorage.setItem("tema", "claro");
+        }
+    }
+
+    window.onload = function () {
+
+        if (localStorage.getItem("tema") === "escuro") {
+            document.body.classList.add("dark-mode");
+        }
 
     }
 </script>
@@ -59,9 +124,13 @@
                     Sobre
                 </a>
 
-                <button type="button" class="btn btn-outline-secondary" onclick="alternarTema()">
+             <button type="button" class="btn btn-outline-secondary" onclick="alternarTema()">
                     🌙 Modo Escuro
-                </button>
+                    =======
+                    <button class="btn btn-outline-light" onclick="alternarTema()">
+                        <i class="bi bi-moon-stars-fill"></i>
+                        Tema
+                    </button>
 
             </div>
     </nav>
